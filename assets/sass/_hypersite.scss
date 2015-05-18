@@ -1,0 +1,134 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+.container {
+  @include respond($md) {
+    //background-image: url(../images/hypersite-images/grid-final.png);
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: center;
+  }
+}
+
+.opener p em {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #e1e8ff;
+  font-weight: 400;
+}
+
+code {
+  font-family: 'Source Code Pro', monospace;
+  color: $primary-color;
+  font-weight: 400;
+}
+
+.inline-grid li img + em,
+.inline-grid div img + em {
+  text-align: left;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  display: block;
+}
+
+.hyper-icon-row {
+  list-style: none;
+  padding: 0;
+  & li {
+    display: inline-block;
+  }
+}
+
+a.tooltip {
+  background-color: transparent;
+  @include border-radius(50%);
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  &:hover {
+    background-color: #dfdfdf;
+  }
+  & .icon {
+    @include vertical-center();
+  }
+  @include respond($lg) {
+    &:after {
+      position: absolute;
+      content: attr(title);
+      bottom: 45px;
+      background-color: #333;
+      @include border-radius($input-border-radius);
+      width: 72px;
+      color: #fff;
+      font-size: 14px;
+      left: 50%;
+      margin-left: -36px;
+      visibility: hidden;
+      @include opacity(0);
+      @include transition((opacity $speed ease-in-out, visibility $speed ease-in-out));
+    }
+    &:hover:after {
+      visibility: visible;
+      @include opacity(1);
+    }
+  }
+}
+
+ul.inline-grid.hyper li,
+.row.hyper > div {
+  & > div {
+    background: #dfdfdf;
+    padding: 8%;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    & img {
+      display: inline-block;
+      vertical-align: top;
+      @include vertical-center();
+    }
+    &.favicon {
+      height: 200px;
+    }
+    &.touch-icon {
+      height: 200px;
+      & img {
+        width: 75px;
+        @include border-radius(20%);
+        @include box-shadow(0,0,5px,#ccc);
+      }
+    }
+  }
+  & p {
+    margin-top: .75em;
+    margin-bottom: 2em;
+  }
+}
+
+.light {
+  color: $light-text-color;
+}
+
+.hyper-grid {
+  display: none;
+  @include respond($md) {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    & .row .col {
+      background-color: #eee;
+      margin-bottom: 0;
+      height: 100%;
+    }
+  }
+}
+
+#page {
+  position: relative;
+  z-index: 1;
+}

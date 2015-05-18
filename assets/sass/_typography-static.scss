@@ -1,0 +1,31 @@
+body {
+	text-rendering: optimizeLegibility;
+	// -o-font-feature-settings: 'liga' 1, 'kern';
+	// -moz-font-feature-settings: 'liga=1', 'kern=1';
+	// -moz-font-feature-settings: 'liga' 1, 'kern';
+	// -ms-font-feature-settings: 'liga' 1, 'kern';
+	// -webkit-font-feature-settings: 'liga' 1, 'kern';
+	// font-feature-settings: 'liga' 1, 'kern';
+}
+
+// Selection
+
+// Webkit
+::-webkit-selection { background-color: $highlight-bg; color: $highlight-color; }
+// Mozilla
+::-moz-selection { background-color: $highlight-bg; color: $highlight-color; }
+::selection { background-color: $highlight-bg; color: $highlight-color; }
+
+// Placeholders
+
+// Webkit
+::-webkit-input-placeholder { color: $placeholder-color; @include transition((color $speed ease-in-out));}
+:focus::-webkit-input-placeholder {color: $placeholder-focus-color; }
+// Mozilla
+:-moz-placeholder { color: $placeholder-color; @include transition((color $speed ease-in-out));}
+:focus:-moz-placeholder {color: $placeholder-focus-color; }
+::-moz-placeholder { color: $placeholder-color; @include transition((color $speed ease-in-out));}
+:focus::-moz-placeholder {color: $placeholder-focus-color; }
+// IE
+:-ms-input-placeholder { color: $placeholder-color; @include transition((color $speed ease-in-out));}
+:focus:-ms-input-placeholder {color: $placeholder-focus-color; }

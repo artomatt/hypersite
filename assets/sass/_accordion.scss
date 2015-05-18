@@ -1,0 +1,97 @@
+// Accordion
+.accordion {
+  clear: both;
+  .accordion-title {
+    cursor: pointer;
+    display: block;
+    padding: 1em 0 .8em;
+    margin: 0;
+    font-size: 1.25em;
+    @include transition((color $speed ease-in-out, background $speed ease-in-out));
+    .icon {
+      float: right;
+      margin-top: 3px;
+      margin-bottom: 0px;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      margin-bottom: 0;
+      border-top: $accordion-styles;
+      @include transition((max-height $speed ease-in-out, color $speed ease-in-out, background $speed ease-in-out));
+      // max-height: 62px;
+      overflow: hidden;
+      position: relative;
+      .accordion-content {
+        // @include opacity(0);
+        // visibility: hidden;
+        //@include transition((visibility $speed ease-in-out, opacity $speed ease-in-out));
+        > div {
+          padding-bottom: .5em;
+          p {
+            margin-top: 0;
+          }
+        }
+      }
+      .accordion-title {
+        width: 90%;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+      }
+      .icon {
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        background-color: $text-color;
+        margin-top: 9px;
+        right: 0;
+        top: 20px;
+        @include transition((transform $speed ease-in-out, background $speed ease-in-out));
+        span {
+          display: block;
+          position: absolute;
+          width: 2px;
+          height: 16px;
+          left: 7px;
+          top: -7px;
+          background-color: $text-color;
+          @include transition(background $speed ease-in-out);
+        }
+      }
+      &:last-child,
+      &.last-child {
+        border-bottom: $accordion-styles;
+      }
+      &:hover {
+        .accordion-title {
+          color: $primary-color;
+        }
+        .icon,
+        .icon span {
+          background-color: $primary-color;
+        }
+      }
+      &.open {
+        //max-height: 500px;
+        .accordion-content {
+          @include opacity(1);
+          visibility: visible;
+        }
+        .accordion-title {
+          color: $primary-color;
+        }
+        .icon {
+          @include transform(rotate(135deg));
+          background-color: $primary-color;
+          span {
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}

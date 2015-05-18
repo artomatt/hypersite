@@ -1,0 +1,127 @@
+// Grid Layout
+.grid {
+  margin: 0 (-$grid-gutter);
+  padding: 0;
+  @include respond($md) {
+    margin: 0 -($gutter / 2);
+  }
+}
+
+ul.grid {
+  margin-top: 0;
+  margin-bottom: -($grid-gutter);
+  list-style: none;
+  li{
+    display: inline-block;
+    width: 100%;
+    margin-right: -0.25em;
+    vertical-align: top;
+    margin-bottom: 0;
+    padding: 0 $grid-gutter ($grid-gutter*2);
+    @include respond($md) {
+      padding: 0 ($grid-gutter/2) $grid-gutter;
+    }
+  }
+  &.two-up li{
+    @include respond($md) {
+      width: 50%;  
+    }
+  }
+  &.three-up li{
+    @include respond($md) {
+      width: 50%;  
+    }
+    @include respond($lg) {
+      width: 33.3334%;
+    }
+  }
+  &.four-up li{
+    @include respond($md) {
+        width: 50%;  
+    }
+    @include respond($lg) {
+        width: 33.3334%;
+    }
+    @include respond($xlg) {
+        width: 25%;
+    }
+  }
+  &.five-up li{
+    @include respond($md) {
+        width: 50%;  
+    }
+    @include respond($lg) {
+        width: 33.3334%;
+    }
+    @include respond($xlg) {
+        width: 20%;
+    }
+  }
+  &.six-up li{
+    width: 50%;
+    @include respond($md) {
+        width: 33.3334%;
+    }
+    @include respond($lg) {
+        width: 16.6667%;
+    }
+  }
+}
+// Columns
+.column-wrapper {
+  padding: 3em 0;
+  width: 100%;
+  float: left;
+}
+
+.half {
+  @include respond($md) {
+    width: 50%;
+  }
+}
+
+.half.left {
+  @include respond($md) {
+    float: left;
+    padding-right: ($gutter/2);
+    @include transition((padding $speed ease-in-out));
+  }
+}
+
+.half.right {
+  @include respond($md) {
+    float: right;
+    padding-left: ($gutter/2);
+    @include transition((padding $speed ease-in-out));
+  }
+}
+
+.third.left,
+.two-thirds.left {
+  @include respond($lg) {
+    float: left;
+    padding-right: ($gutter/2);
+    @include transition((padding $speed ease-in-out));
+  }
+}
+
+.third.right,
+.two-thirds.right {
+  @include respond($lg) {
+    float: right;
+    padding-left: ($gutter/2);
+    @include transition((padding $speed ease-in-out));
+  }
+}
+
+.two-thirds {
+  @include respond($lg) {
+    width: 66.6667%;
+  }
+}
+
+.third {
+  @include respond($lg) {
+    width: 33.3334%;
+  }
+}

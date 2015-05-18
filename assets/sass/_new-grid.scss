@@ -1,0 +1,352 @@
+// Calculate width for one column, based on the given column number and gutter 
+// width in percentage.
+// Example: $gutter  = 2, $columns = 12: 
+// (100% - (2% * (12 - 1)) ) / 12 = 6.5%
+$onecol: (100% - ($gutter * ($columns - 1))) / $columns;
+$inlinecol: 100% / $columns;
+
+////////////////////////////////////////////////////////////////////////////////
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+////////////////////////////////////////////////////////////////////////////////
+
+@mixin clearfix() {
+    *zoom:1;
+    &:before, 
+    &:after {
+        content: ""; 
+        display: table; 
+    }
+    &:after {
+        clear: both; 
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Grid
+////////////////////////////////////////////////////////////////////////////////
+
+// First level columns.
+// $num is the number of columns the element should span.
+@mixin columns($num) {
+
+    // Example: $num = 10, $gutter = 2%:
+    // (6.5% * 10) + (2% * (10 - 1)) = 83%
+    width: ($onecol * $num) + ($gutter * ($num - 1));
+
+    //margin: 0 0 0 $gutter;
+}
+
+@mixin inlinecolumns($num) {
+    width: ($inlinecol * $num);
+}
+
+// Nested columns.
+// $children is the number of columns the element should span inside its parent.
+// $parent is the number of columns the closest parent has. 
+// Example: .nestedcolumns(3, 6); makes two columns (spanning three columns each) 
+// inside six columns.
+@mixin nestedcolumns($children, $parent) {
+
+    // Example: $parent = 10, $gutter = 2
+    // (6.5% * 10) + (2% * (10 - 1)) = 83%
+    $parentsize: ($onecol * $parent) + ($gutter * ($parent - 1));
+
+    // Example: $children = 3, $gutter = 2
+    // (6.5% * 3) + (2% * (3 - 1)) = 23.5%
+    $childsize: ($onecol * $children) + ($gutter * ($children - 1));
+
+    // Example: $gutter = 2, $parentsize = 83%
+    // (2% / 83%) * 100% = 2.409638554217%
+    margin-left: ($gutter / $parentsize) * 100%;
+
+    // Example: $childsize = 23.5%, $parentsize = 83%
+    // width: (23.5% / 83%) * 100% = 27.710843373494%
+    width: ($childsize / $parentsize) * 100%;
+}
+
+/*==============================================================================
+  Rows, containing any number of columns 
+==============================================================================*/
+.row {
+  padding: 0;
+  list-style: none;
+  @include respond($md) {
+    display: block;
+    margin: 0 auto $gutter;
+    width: 100%;
+    @include clearfix;
+  }
+}
+
+/*==============================================================================
+  Columns, generic
+==============================================================================*/
+.col + .col:last-child,
+.col.right {
+  @include respond($md) {
+    float: right;
+  }
+}
+
+.col + .col.end {
+  @include respond($md) {
+    float: left;
+  }
+}
+
+/* Cancel the left margin in the first item */
+.row .col:first-child, 
+.row .row .col:first-child,
+.col.left {
+  @include respond($md) {
+    margin-left: 0;
+  }
+}
+
+/* Column, generic */
+.col {
+  min-height: 1px;
+  @include respond($md) {
+    display: inline;
+    float: left;
+    position: relative;
+    margin: 0 0 0 $gutter;
+  }
+}
+
+.inline-grid {
+  padding: 0;
+  list-style: none;
+  @include respond($md) {
+    text-align: left;
+    display: block;
+    @include clearfix;
+    margin: 0 (-$gutter/2) $gutter;
+    &.center {
+      text-align: center;
+      > * {
+        margin-right: -.125em;
+        margin-left: -.125em;
+      }
+    }
+    &.right {
+      text-align: right;
+      > * {
+        margin-right: 0;
+        margin-left: -.25em;
+      }
+    }
+    & > * {
+      vertical-align: top;
+      display: inline-block;
+      margin-right: -.25em;
+      margin-left: 0;
+      padding: 0 $gutter/2 $gutter;
+      float: none !important;
+      text-align: left;
+    }
+    &.middle > * {
+      vertical-align: middle;
+    }
+    &.bottom > * {
+      vertical-align: bottom;
+    }
+  }
+}
+
+/*==============================================================================
+  Column widths and left margins (use your own classes, this is just for demonstration)
+==============================================================================*/
+// columns(children);
+.one {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(1);  
+    }
+    @include columns(1);
+  }
+}
+
+.two {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(2);  
+    }
+    @include columns(2);
+  }
+}
+
+.three {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(3);  
+    }
+    @include columns(3);
+  }
+}
+
+.four-up > * {
+  @include respond($md) {
+    @include inlinecolumns(3);
+  }
+}
+
+.four {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(4);  
+    }
+    @include columns(4);
+  }
+}
+
+.three-up > * {
+  @include respond($md) {
+    @include inlinecolumns(4);
+  }
+}
+
+.five {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(5);  
+    }
+    @include columns(5);
+  }
+}
+
+.six {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(6);  
+    }
+    @include columns(6);
+  }
+}
+
+.seven {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(7);  
+    }
+    @include columns(7);
+  }
+}
+
+.eight {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(8);  
+    }
+    @include columns(8);
+  }
+}
+
+.nine {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(9);  
+    }
+    @include columns(9);
+  }
+}
+
+.ten {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(10);  
+    }
+    @include columns(10);
+  }
+}
+
+.eleven {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(11);  
+    }
+    @include columns(11);
+  }
+}
+
+.twelve {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(12);  
+    }
+    @include columns(12);
+  }
+}
+
+.fifth {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(12/5);  
+    }
+    @include columns(12/5);
+  }
+}
+
+.eighth {
+  @include respond($md) {
+    .inline-grid & {
+      @include inlinecolumns(12/8);  
+    }
+    @include columns(12/8);
+  }
+}
+
+// nestedcolumns(children, parent);
+.six .two {
+  @include respond($md) {
+    @include nestedcolumns(2, 6);
+  }
+}
+
+.six .three {
+  @include respond($md) {
+    @include nestedcolumns(3, 6);
+  }
+}
+
+.six .four {
+  @include respond($md) {
+    @include nestedcolumns(4, 6);
+  }
+}
+
+.eight .two {
+  @include respond($md) {
+    @include nestedcolumns(2, 8);
+  }
+}
+
+.eight .three {
+  @include respond($md) {
+    @include nestedcolumns(3, 8);
+  }
+}
+
+.eight .four {
+  @include respond($md) {
+    @include nestedcolumns(4, 8);
+  }
+}
+
+.eight .five {
+  @include respond($md) {
+    @include nestedcolumns(5, 8);
+  }
+}
+
+.eight .six {
+  @include respond($md) {
+    @include nestedcolumns(6, 8);
+  }
+}
+
+.eight .seven {
+  @include respond($md) {
+    @include nestedcolumns(7, 8);
+  }
+}

@@ -1,0 +1,63 @@
+// Videos
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 0px;
+	height: 0;
+  background: blue;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+// Forms
+form > div.half,
+form > div.half.right,
+form > div.third,
+form > div.third.right,
+form > div.two-thirds,
+form > div.two-thirds.right {
+  float: none;
+  padding: 0;
+  @include respond($md) {
+    display: inline-block;
+    margin-right: -0.25em;
+    width: 50%-($gutter);
+  }
+  @include respond($lg) {
+    width: 50%-($gutter/2);
+  }
+}
+//Forms
+form > div.third,
+form > div.third.right {
+  @include respond($md) {
+    width: 33.3334% -($gutter);
+  }
+  @include respond($lg) {
+    width: 33.3334% -($gutter/2);
+  }
+}
+
+form > div.two-thirds,
+form > div.two-thirds.right {
+  @include respond($md) {
+    width: 66.6667% -($gutter);
+  }
+  @include respond($lg) {
+    width: 66.6667% -($gutter/2);
+  }
+}
+
+form > div.right {
+  @include respond($md) {
+    margin-left: $gutter*2;
+  }
+  @include respond($lg) {
+    margin-left: $gutter;
+  }
+}

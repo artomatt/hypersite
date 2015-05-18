@@ -1,0 +1,70 @@
+// Slideshows
+.slideshow .slides {
+  position: relative;
+  margin: 0;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.slidePager {
+  text-align: center;
+  padding: 20px 0;
+  span {
+    cursor: pointer;
+    color: $text-color;
+    @include transition((color $speed ease-in-out, opacity $speed ease-in-out));
+    @include opacity(.2);
+    font-size: 20px;
+    padding: 15px 10px 10px;
+    line-height: 0;
+    display: inline-block;
+    vertical-align: middle;
+    &.active {
+      @include opacity(1);
+    }
+  }
+}
+
+.detailPager {
+  display: none;
+  @include respond($md) {
+    display: block;
+    li {
+      cursor: pointer;
+      margin-right: 0;
+      & img {
+        @include opacity(.35);
+      }
+      &.active img {
+        @include opacity(1);
+      }
+    }
+  }
+}
+
+.slideshow .next,
+.slideshow .prev {
+  display: none;
+  @include respond($md) {
+    display: block;
+    font-size: 30px;
+    position: absolute;
+    bottom: 17px;
+    z-index: 100;
+    cursor: pointer;
+  }
+}
+
+.slideshow .prev {
+  left: -2px;
+}
+
+.slideshow .next {
+  right: -2px;
+}

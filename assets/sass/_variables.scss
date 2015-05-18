@@ -1,0 +1,90 @@
+// Width
+$site-width: 90%;
+$max-site-width: 1000px;
+
+/// Colors
+  $bg-color : #fff;
+  $primary-color : blue;
+
+// Text Colors
+  $text-color : #222;
+  $light-text-color : #999;
+  $hr-color : $text-color;
+  $hr-styles : 3px solid $hr-color;
+  $accordion-styles : 1px solid $light-text-color;
+  // Links
+    $link-color : $light-text-color;
+    $link-hover-color : $primary-color;
+  $dropdown-color : $light-text-color;
+  $nav-color : $text-color; 
+  $nav-hover-color : $primary-color;
+
+// Typography
+  $main-font: 'Avenir', sans-serif;
+  $secondary-font: 'Avenir', sans-serif;
+  $base-font-size : 16px;
+  $base-line-height : 1.65em;
+
+// Highlights
+  $highlight-bg : $light-text-color;
+  $highlight-color : $bg-color;
+
+// Text Inputs
+  $input-bg : transparent;
+  $input-border : 1px solid $light-text-color;
+  $input-border-radius : 2px;
+  $input-focus-bg : transparent;
+  $input-focus-color : $text-color;
+  $input-focus-border : 1px solid $primary-color;
+  $placeholder-color : $light-text-color;
+  $placeholder-focus-color : transparent;
+
+  $input-padding: 2px 10px 0px 10px;
+  $input-line-height: 40px; // Make $btn-medium-height
+
+// Select
+  $select-border : $input-border;
+  $select-bg : transparent;
+  $select-color : $light-text-color;
+
+// Buttons
+  $btn-height: 50px;
+    $btn-medium-height: 40px;
+    $btn-tiny-height: 30px;
+  $btn-padding: 0px 15px 0px 15px;
+    $btn-medium-padding: 0px 15px 0px 15px;
+    $btn-tiny-padding: 0px 15px 0px 15px;
+  $btn-icon-opacity: .5;
+  $btn-hover-icon-opacity: 1;
+  
+  $btn-border: 1px solid $text-color;
+  $btn-bg : $text-color;
+  $btn-color : $bg-color;
+  $btn-hover-bg : $primary-color;
+  $btn-border-radius : $input-border-radius;
+  $btn-hover-color : $bg-color;
+  $btn-hover-border: 1px solid $primary-color;
+  
+  $secondary-btn-border: 1px solid $light-text-color;
+  $secondary-btn-bg : transparent;
+  $secondary-btn-color : $light-text-color;
+  $secondary-btn-hover-bg : transparent;
+  $secondary-btn-border-radius : $input-border-radius;
+  $secondary-btn-hover-color : $primary-color;
+  $secondary-btn-hover-border: 1px solid $primary-color;
+
+/// Grid Settings
+  $columns: 12;
+  $gutter: 3%;
+  $grid-gutter: $gutter;
+
+/// Breakpoints
+  $md : 600;
+  $lg : 850;
+  $xlg : 1050;
+  $huge : 1500;
+
+/// Transitions
+  $fast : .1s;
+  $slow : .5s;
+  $speed : .25s;
