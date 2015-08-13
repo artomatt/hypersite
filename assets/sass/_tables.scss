@@ -1,0 +1,27 @@
+// Tables
+table {
+  width: 100%;
+  vertical-align: middle;
+}
+
+table th {
+  font-weight: 700;
+  border-bottom: 1px solid $text-color;
+}
+
+table td {
+  vertical-align: middle;
+  border-bottom: 1px solid $hr-color;
+  padding: $gutter 0;
+}
+
+table td input[type="text"] {
+  margin: 0 0 0 0;
+}
+
+th.price, 
+td.price,
+th.last, 
+td.last {
+  text-align: right;
+}

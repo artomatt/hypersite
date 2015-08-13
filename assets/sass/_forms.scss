@@ -1,0 +1,139 @@
+ // Forms
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  background: $input-bg;
+  border: $input-border;
+  box-shadow: none;
+  outline: none;
+  font-size: 1em;
+  padding: $input-padding;
+  width: 100%;
+  margin: 0px 0 1em 0;
+  line-height: $input-line-height;
+  @include border-radius ($input-border-radius);
+  @include transition ((background $speed ease-in-out, border $speed));
+  resize: none;
+  vertical-align: top;
+  text-indent: 0px;
+  height: $btn-medium-height;
+}
+
+textarea {
+  line-height: $base-line-height;
+  padding-top: 7px;
+  padding-bottom: 10px;
+  height: 120px;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  background: $input-focus-bg;
+  border: $input-focus-border;
+  color: $input-focus-color;
+}
+
+// Radios and Checkboxes
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  font-size: 1em;
+}
+
+input[type="radio"] + label span,
+input[type="checkbox"] + label span {
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  background-color: $hr-color;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+  @include transition ((border $speed ease-in-out, background $speed ease-in-out, color $speed ease-in-out));
+}
+
+input[type="radio"] + label span {
+  @include border-radius(50%);
+  border: 3px solid $hr-color;
+}
+
+input[type="radio"]:checked + label span,
+input[type="checkbox"]:checked + label span {
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  background-color: $link-color;
+}
+
+// Selects
+select {
+  -webkit-appearance: none;
+  background: $select-bg;
+  border: $select-border;
+  color: $select-color;
+  box-shadow: none;
+  outline: none;
+  font-size: 1em;
+  height: 40px;
+  width: 100%;
+  margin: 0px 0 1em 0;
+  line-height: 1.2em;
+  padding: $input-padding;
+  @include border-radius ($input-border-radius);
+  @include transition ((background $speed ease-in-out, border $speed));
+  vertical-align: top;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url(../images/arrow-thick-blk.png);
+  background-image: url(../images/arrow-thick-blk.svg);
+}
+
+select:hover,
+select:focus {
+  border: $input-focus-border;
+}
+
+.blue {
+  color: $primary-color;
+}
+
+.grey {
+  color: $light-text-color;
+}
+
+// Rich Text Areas
+.rich-text {
+  ul,
+  ol {
+    padding-top: 2em;
+    padding-bottom: 2em; 
+    li {
+      margin-bottom: .75em;
+    }
+  }
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 4rem;
+  }
+}
