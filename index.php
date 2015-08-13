@@ -19,13 +19,30 @@
 						</div>
 					</div>
 				</section>
+			</div>
 
-				<section id="grid">
+				<div class="full-window-height">
+					<div class="vertical-center">
+						<div class="table">
+							<div class="table-cell">
+								<div class="container">
+									<p class="lg">
+										This area consists of 4 <code>div</code>. the first is <code>div.full-window height</code>. This will make the div the height of the window. The second is <code>div.vertical-center</code>. This wraps 2 more divs, <code>div.table</code> and <code>div.table-cell</code>. Anything in this div wil be vertically centered.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<div class="container">
+
+				<div id="grid">
 					<section>
 						<hr>
 						<div class="row">
 							<div class="col four">
-								<h4 class="no-pushdown">Floating Grid</h4>
+								<h4>Floating Grid</h4>
 							</div>
 							<div class="col eight">
 								<p class="opener">This is a grid using the <code>.row</code> class. It uses floats and is very stable. You can also do tricks like shuffle the content. Check out the <b><a href="#catExample">Cat Example</a></b>.</p>
@@ -133,11 +150,13 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</div>
+				<!-- End #grid -->
+
 				<section id="catExample">
 					<div class="row">
 						<div class="col eight right">
-							<h4 class="no-pushdown">The Cat Example</h4>
+							<h4>The Cat Example</h4>
 							<p>For Shuffling Content</p>
 						</div>
 						<div class="col four left">
@@ -149,6 +168,8 @@
 						</div>
 					</div>
 				</section>
+				<!-- End #catExample -->
+
 				<section>
 					<h4>Breaking Grid is for Badasses</h4>
 					<ul class="inline-grid">
@@ -205,12 +226,13 @@
 							<p class="sm"><code>.eighth</code> (Eighths)</p>
 						</li>
 					</ul>
-				</section>	
+				</section>
+
 				<section>
 					<hr>
 					<div class="row">
 						<div class="col four">
-							<h4 class="no-pushdown">Inline-block Grids Are Awesome</h4>
+							<h4>Inline-block Grids Are Awesome</h4>
 						</div>
 						<div class="col eight">
 							<p>By adding a class of <code>.inline-grid</code> and <code>.three-up</code> to the container element you can make a nice grid of three. This also works with <code>.four-up</code>. While <code>vertical-align: top</code> is the default, you can also add classes <code>.middle</code> and <code>.bottom</code> to effect vertical alignement and <code>.right</code> and <code>.center</code> to effect horizontal aligment.</p>
@@ -227,6 +249,7 @@
 						<li><img src="http://placehold.it/600x300"/></li>
 					</ul>
 				</section>
+
 				<section>
 					<div class="row">
 						<div class="col seven">
@@ -273,14 +296,15 @@
 				    </div>
 					</div>
 				</section>
+
 				<section id="typography">
 					<hr>
 					<div class="row">
 						<div class="col four">
-							<h3 class="no-pushdown">Typography</h3>
+							<h3>Typography</h3>
 						</div>
 						<div class="col eight">
-							<h4 class="no-pushdown">Headers</h4>
+							<h4>Headers</h4>
 							While <code>h1</code> to <code>h6</code> are styled, the style's of headers can be applied to another element. For example, adding a class of <code>h2</code> to a <code>p</code> will make the <code>p</code> act as an <code>h2</code></p>
 							<div class="row">
 								<div class="col four">
@@ -301,7 +325,7 @@
 								</div>
 							</div>
 							<h6>Opener Paragraph <code>p.opener</code></h6>
-							<p class="opener">Note that space is placed above and below <code><H></code> tags. This space can be removed from the top by adding a class of <code>.no-pushdown</code>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+							<p class="opener">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
 							<h6>Wrap the First Letter in <code>span.dropcap</code></h6>
 							<p><span class="dropcap">O</span>There are a few cool things here. Adding a class of <code>.dropcap</code> to first letter of a <code>p</code> or adding a class of <code>.dropcap</code> to a <code>p</code> creates a dropcap. <span class="light">Tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete.</span></p>
 							<h6>Or the CSS3 Style...<code>p.dropcap</code></h6>
@@ -358,11 +382,13 @@
 						</div>
 					</div>
 				</section>
+				<!-- End #typography -->
+
 				<section id="accordion">
 					<hr>
 					<div class="row">
 						<div class="col four">
-							<h3 class="no-pushdown">Accordion</h3>
+							<h3>Accordion</h3>
 							<div>
 								<p>Give the container a class of <code>accordion</code>. Within this there is <code>accordion-title</code> and <code>accordion-content</code>. The .accordion-title div is hidden until the .accordion-title is clicked. Be sure to do any spacing on a <code>div</code> within accordion content to avoide odd transitions.</p>
 							</div>
@@ -371,8 +397,8 @@
 							<div class="accordion">
 								<ul>
 									<li>
-										<h4 class="accordion-title">Section Title</h4>
 										<div class="icon plus"><span></span></div>
+										<h4 class="accordion-title">Section Title</h4>
 										<div class="accordion-content">
 											<div>
 												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
@@ -429,11 +455,13 @@
 						</div>
 					</div>
 				</section>
+				<!-- End #accordion -->
+
 				<section id="slideshow">
 					<hr>
 					<div class="row">
 						<div class="col-4">
-							<h3 class="no-pushdown">Slideshow</h3>
+							<h3>Slideshow</h3>
 							<p class="sm">The Hypersite slideshow uses <a href="http://jquery.malsup.com/cycle2/">Cycle 2</a></p>
 						</div>
 						<div class="col-8">
@@ -441,15 +469,15 @@
 								<div class="slides">
 									<ul>
 										<li><img src="http://placehold.it/1000x500"/></li>
-										<li><a href="#"><img src="http://placekitten.com/1000/500"/></a></li>
+										<li><img src="http://placehold.it/1000x500/555555/ffffff"/></li>
 										<li><img src="http://placehold.it/1000x500"/></li>
-										<li><a href="#"><img src="http://placekitten.com/1000/500"/></a></li>
+										<li><img src="http://placehold.it/1000x500/555555/ffffff"/></li>
 										<li><img src="http://placehold.it/1000x500"/></li>
-										<li><a href="#"><img src="http://placekitten.com/1000/500"/></a></li>
+										<li><img src="http://placehold.it/1000x500/555555/ffffff"/></li>
 										<li><img src="http://placehold.it/1000x500"/></li>
-										<li><a href="#"><img src="http://placekitten.com/1000/500"/></a></li>
+										<li><img src="http://placehold.it/1000x500/555555/ffffff"/></li>
 										<li><img src="http://placehold.it/1000x500"/></li>
-										<li><a href="#"><img src="http://placekitten.com/1000/500"/></a></li>
+										<li><img src="http://placehold.it/1000x500/555555/ffffff"/></li>
 									</ul>
 									<div class="prev">&#8592;</div>
 									<div class="next">&#8594;</div>
@@ -460,11 +488,13 @@
 						</div>
 					</div>
 				</section>
+				<!-- End #slideshow -->
+
 				<section id="forms">
 					<hr>
 					<div class="row">
 						<div class="col four">
-							<h3 class="no-pushdown">Forms</h3>
+							<h3>Forms</h3>
 						</div>
 						<div class="col eight">
 							<form>
@@ -515,11 +545,13 @@
 						</div>
 					</div>
 				</section>
+				<!-- End #forms -->
+
 				<section id="buttons">
 					<hr>
 					<div class="row">
 						<div class="col four">
-							<h3 class="no-pushdown">Buttons</h3>
+							<h3>Buttons</h3>
 						</div>
 						<div class="col eight">
 							<p>To ensure consistancy in the IU, buttons, links intended to be buttons, and submits should act the same.</p>
@@ -565,7 +597,6 @@
 							</div>
 							<p class="sm"><code>a.btn.secondary</code></p>
 						</li>
-
 						<li>
 							<div>
 								<button class="medium">Button</button>
@@ -641,11 +672,13 @@
 						</li>
 					</ul>
 				</section>
+				<!-- End #buttons -->
+
 				<section id="details">
 					<hr>
 					<div class="row">
 						<div class="col four">
-							<h3 class="no-pushdown">Details</h3>
+							<h3>Details</h3>
 							<p>Be sure replace the favicon and touch icon images. Always ask for and test the Google Analytics info <strong>before</strong> launch.</p>
 						</div>
 						<div class="col eight right">
@@ -662,6 +695,7 @@
 						</div>
 					</div>
 				</section>
+				<!-- End #details -->	
 			</div>
 		</div>
 		<? include 'assets/includes/footer.php'; ?>

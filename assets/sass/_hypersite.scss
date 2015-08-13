@@ -1,14 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
-
-.container {
-  @include respond($md) {
-    //background-image: url(../images/hypersite-images/grid-final.png);
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    background-position: center;
-  }
-}
-
 .opener p em {
   font-family: 'Source Code Pro', monospace;
   background-color: #e1e8ff;
@@ -121,7 +110,7 @@ ul.inline-grid.hyper li,
     right: 0;
     z-index: 0;
     & .row .col {
-      background-color: #eee;
+      background-color: lighten($text-color, 80%);
       margin-bottom: 0;
       height: 100%;
     }
@@ -131,4 +120,44 @@ ul.inline-grid.hyper li,
 #page {
   position: relative;
   z-index: 1;
+}
+
+// Animation Examples
+.hyper-animation {
+  position: relative;
+  background-color: lighten($text-color, 78%);
+  height: 600px;
+  &.dark {
+    background-color: $text-color;
+  }
+  &.primary {
+    background-color: $primary-color;
+  }
+  
+  @include respond($md) {
+    margin-bottom: $gutter;
+  }
+
+  .ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -75px;
+    margin-top: -75px;
+  }
+}
+
+.col {
+  .hyper-animation {
+    height: 400px;
+  }
+}
+
+// Splash Area
+.full-window-height {
+  background-color: $text-color;
+  color: $light-text-color;
+  code {
+    color: $bg-color;
+  }
 }

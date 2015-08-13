@@ -5,6 +5,8 @@
 input[type="submit"],
 button {
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
   border: none;
   outline: none;
   display: inline-block;
@@ -32,63 +34,69 @@ button {
   overflow: hidden;
   @include border-radius ($btn-border-radius);
   @include transition ((border $speed ease-in-out, background $speed ease-in-out, color $speed ease-in-out, background $speed ease-in-out, padding $speed ease-in-out));
-}
+  
+  .icon {
+    svg {
+      * {
+        fill: $btn-color;
+      }
+    }
+  }
 
-.btn.medium,
-input[type="submit"].medium,
-button.medium {
-  font-size: .95em;
-  height: $btn-medium-height;
-  padding: $btn-medium-padding;
-  line-height: $btn-medium-height;
-}
+  &.medium {
+    font-size: .95em;
+    height: $btn-medium-height;
+    padding: $btn-medium-padding;
+    line-height: $btn-medium-height;
+  }
 
-.btn.tiny,
-input[type="submit"].tiny,
-button.tiny {
-  font-size: .857em;
-  height: $btn-tiny-height;
-  padding: $btn-tiny-padding;
-  line-height: $btn-tiny-height;
-}
+  &.tiny {
+    font-size: .857em;
+    height: $btn-tiny-height;
+    padding: $btn-tiny-padding;
+    line-height: $btn-tiny-height;
+  }
 
-.btn:hover,
-input[type="submit"]:hover,
-button:hover,
-.btn:focus,
-input[type="submit"]:focus,
-button:focus {
-  color: $btn-hover-color;
-  background-color: $btn-hover-bg;
-  border: $btn-hover-border;
-}
+  &:hover,
+  &:focus {
+    color: $btn-hover-color;
+    background-color: $btn-hover-bg;
+    border: $btn-hover-border;
+    svg {
+      * {
+        fill: $btn-hover-color;
+      }
+    }
+  }
 
-.btn.loading,
-input[type="submit"].loading,
-button.loading {
-  color: transparent;
-  background-color: $btn-bg;
-  border: $btn-border;
-  cursor: default;
-}
+  &.loading {
+    color: transparent;
+    background-color: $btn-bg;
+    border: $btn-border;
+    cursor: default;
+  }
 
-.btn.secondary,
-input[type="submit"].secondary,
-button.secondary {
-  background-color: $secondary-btn-bg;
-  color: $secondary-btn-color;
-  border: $secondary-btn-border;
-}
-
-.btn.secondary:hover,
-input[type="submit"].secondary:hover,
-button.secondary:hover,
-.btn.secondary:focus,
-input[type="submit"].secondary:focus,
-button.secondary:focus {
-  color: $secondary-btn-hover-color;
-  background-color: $secondary-btn-hover-bg;
-  border: $secondary-btn-hover-border;
+  &.secondary {
+    background-color: $secondary-btn-bg;
+    color: $secondary-btn-color;
+    border: $secondary-btn-border;
+    svg {
+      * {
+        fill: $secondary-btn-color;
+      }
+    }
+    &:hover,
+    &:focus {
+      color: $secondary-btn-hover-color;
+      background-color: $secondary-btn-hover-bg;
+      border: $secondary-btn-hover-border;
+      svg {
+        * {
+          fill: $secondary-btn-hover-color;
+        }
+      }
+    }
+  }
 }
 
 // Icons
@@ -98,15 +106,13 @@ button.secondary:focus {
   width: 16px;
   vertical-align: middle;
   @include transition ((background $speed ease-in-out, opacity $speed ease-in-out));
-  & svg {
+  svg {
     max-height: 16px;
     max-width: 16px;
-  }
-  & path,
-  & rect,
-  & polygon {
-    fill: $text-color;
-    @include transition((fill $speed ease-in-out));
+    * {
+      fill: $text-color;
+      @include transition((fill $speed ease-in-out));
+    }
   }
 }
 
@@ -117,71 +123,6 @@ button .icon {
   margin-bottom: 3px;
 }
 
-.btn .icon path,
-input[type="submit"] .icon path,
-button .icon path,
-.btn .icon rect,
-input[type="submit"] .icon rect,
-button .icon rect,
-.btn .icon polygon,
-input[type="submit"] .icon polygon,
-button .icon polygon {
-  fill: $btn-color;
-}
-
-.btn:hover .icon path,
-input[type="submit"]:hover .icon path,
-button:hover .icon path,
-.btn:hover .icon rect,
-input[type="submit"]:hover .icon rect,
-button:hover .icon rect,
-.btn:hover .icon polygon,
-input[type="submit"]:hover .icon polygon,
-button:hover .icon polygon,
-.btn:focus .icon path,
-input[type="submit"]:focus .icon path,
-button:focus .icon path,
-.btn:focus .icon rect,
-input[type="submit"]:focus .icon rect,
-button:focus .icon rect,
-.btn:focus .icon polygon,
-input[type="submit"]:focus .icon polygon,
-button:focus .icon polygon {
-  fill: $btn-hover-color;
-}
-
-.btn.secondary .icon path,
-input[type="submit"].secondary .icon path,
-button.secondary .icon path,
-.btn.secondary .icon rect,
-input[type="submit"].secondary .icon rect,
-button.secondary .icon rect,
-.btn.secondary .icon polygon,
-input[type="submit"].secondary .icon polygon,
-button.secondary .icon polygon {
-  fill: $secondary-btn-color;
-}
-
-.btn.secondary:hover .icon path,
-input[type="submit"].secondary:hover .icon path,
-button.secondary:hover .icon path,
-.btn.secondary:hover .icon rect,
-input[type="submit"].secondary:hover .icon rect,
-button.secondary:hover .icon rect,
-.btn.secondary:hover .icon polygon,
-input[type="submit"].secondary:hover .icon polygon,
-button.secondary:hover .icon polygon,
-.btn.secondary:focus .icon path,
-input[type="submit"].secondary:focus .icon path,
-button.secondary:focus .icon path,
-.btn.secondary:focus .icon rect,
-input[type="submit"].secondary:focus .icon rect,
-button.secondary:focus .icon rect,
-.btn.secondary:focus .icon polygon,
-input[type="submit"].secondary:focus .icon polygon,
-button.secondary:focus .icon polygon {
-  fill: $secondary-btn-hover-color;
-}
 
 // Loader
 button#willLoad.loading:after,
@@ -233,4 +174,8 @@ button {
       top: 0;
     }
   }
+}
+
+svg, svg * {
+  @include transition((all $speed ease-in-out));
 }

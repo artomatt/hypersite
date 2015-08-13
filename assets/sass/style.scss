@@ -2,33 +2,19 @@
 @import "variables";
 @import "mixins";
 @import "style-static";
-@import "new-grid";
+@import "grid";
 @import "typography";
+@import "header";
+@import "footer";
+@import "forms";
 @import "buttons-icons";
-@import "fajax";
 @import "animations";
+@import "fajax";
+@import "tables";
+@import "slideshows";
+@import "accordion";
+@import "splash-area";
 @import "hypersite"; // Remove for production
-
-/* Sections
----------------
-- General
-- Fajax
-  - Page Loader
-
-- Splash
-- Header
-- Dropdowns
-- Footer
-- Videos (wrap in .videoWrapper)
-- Image Links
-- Grid Layout
-- Tables
-- Slideshows
-- Accordion
-- Vertical Center
-- Opener
----------------
-*/
 
 // General 
 
@@ -41,6 +27,15 @@ body {
   background-color: $bg-color;
   min-height: 100%; 
   overflow-y: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  @include transition (opacity $speed);
+  border: none;
+  outline: none;
 }
 
 #content {
@@ -59,149 +54,6 @@ section {
   padding-bottom: (100% - $site-width)/2;
 }
 
-// Header
-header {
-}
-
-header .container {
-  padding: 30px 0;
-}
-
-.logo {
-  color: $primary-color;
-  font-size: 1em;
-  margin-bottom: 1.5em;
-  text-indent: -9999px;
-  overflow: hidden;
-  background-image: url(../images/logo.png);
-  background-image: url(../images/logo.svg);
-  background-size: 100% auto;
-}
-
-header nav {
-}
-
-nav > ul {
-  padding: 0;
-  list-style: none;
-}
-
-nav > ul > li {
-  line-height: 16px;
-  display: inline-block;
-  margin-right: 30px;
-  position: relative;
-  background-color: transparent;
-  margin-bottom: 0;
-  @include transition((color $speed ease-in-out, background $speed ease-in-out));
-  &:hover,
-  &:focus {
-    > a {
-      color: $nav-hover-color;
-      border-color: $primary-color;
-    }
-  }
-  a {
-    display: block;
-    &:hover,
-    &:focus {
-      color: $nav-hover-color;
-      border-color: $primary-color;
-    }
-  }
-  > div,
-  > a {
-    cursor: pointer;
-    color: $nav-color;
-    padding: 18px 0 15px;
-    border-bottom: 1px solid transparent;
-  }
-}
-
-nav > ul > li.active,
-nav > ul > li.active > a,
-nav > ul > li.active > div {
-  color: $nav-hover-color;
-  @include respond($md) {
-    border-color: $text-color;
-  }
-}
-
-// Dropdowns
-nav > ul li > ul {
-  visibility: hidden;
-  @include opacity(0);
-  position: absolute;
-  z-index: 9;
-  background-color: $bg-color;
-  padding: 5px 0;
-  min-width: 150px;
-  top: 100%;
-  left: -15px;
-  list-style: none;
-  text-align: left;
-  @include transition((opacity $fast ease-in-out, visibility $fast ease-in-out));
-  @include border-radius(0 $input-border-radius $input-border-radius $input-border-radius);
-  @include box-shadow(0px, 0, 10px, rgba(0,0,0,.2));
-}
-
-nav > ul li > ul li {
-  margin-bottom: 0;
-}
-
-header nav > ul li.has-children,
-nav > ul li.has-children {
-  @include border-radius($input-border-radius $input-border-radius 0 0);
-}
-
-nav > ul li:hover > ul,
-nav > ul li:focus > ul {
-  z-index: 300;
-  visibility: visible;
-  @include opacity(1);
-}
-
-nav > ul li > ul li {
-  & a {
-  display: block;
-  color: $text-color;
-  padding: 12px 15px 10px;
-    &:hover,
-    &:focus {
-      background-color: #eee;
-    }
-  }
-}
-
-header img.logo {
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  @include transition (opacity $speed);
-  border: none;
-  outline: none;
-}
-
-// Footer 
-footer {
-}
-
-footer .container {
-  padding: 2em 0 1.75em;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-footer ul li {
-  margin-bottom: 0;
-}
-
 // Image Links
 a:hover img,
 a:focus img {
@@ -210,97 +62,6 @@ a:focus img {
   outline: none;
 }
 
-// Spacing
-
 .grid a {
   color: $text-color;
-}
-
-// Tables
-table {
-  width: 100%;
-  vertical-align: middle;
-}
-
-table th {
-  font-weight: 700;
-  border-bottom: 1px solid $text-color;
-}
-
-table td {
-  vertical-align: middle;
-  border-bottom: 1px solid $hr-color;
-  padding: $gutter 0;
-}
-
-table td input[type="text"] {
-  margin: 0 0 0 0;
-}
-
-th.price, 
-td.price,
-th.last, 
-td.last {
-  text-align: right;
-}
-
-@import "slideshows";
-@import "accordion";
-
-// Vertical Center
-.vertical-center {
-  position: absolute;
-  z-index: 1000;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-
-.vertical-center > div {
-  display: table;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: $bg-color;
-  padding: (100% - $site-width)/2;
-}
-
-.vertical-center > div > div {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-// Opener
-.full-window-height {
-  background-color: $bg-color;
-  overflow: hidden;
-  position: relative;
-}
-
-.full-window-height > div.full-area {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.full-window-height > div.full-area.wide {
-  top: 50%;
-}
-
-.full-window-height > div.full-area.tall {
-  left: 50%;
-}
-
-.full-window-height > div.full-area > img {
-  width: 100%;
-  height: auto;
-  max-height: none;
-}
-
-.full-window-height > div.full-area.tall img {
-  width: auto;
-  max-height: 100%;
-  max-width: none;
 }

@@ -1,4 +1,75 @@
+@include keyframes(fadeInUp) {
+  0%   { @include opacity(0); @include transform(translate3d(0, 35px, 0)); }
+  100% { @include opacity(1); @include transform(translate3d(0, 0, 0)); }
+}
+
+// Ripple
+$ripple-size : 150px;
+$ripple-speed : 3s;
+
+@include keyframes(ripple) {
+  0%   { @include opacity(.75); @include transform(scale(0)); }
+  100% { @include opacity(0); @include transform(scale(1)); }
+}
+
+.ripple {
+	position: relative;
+	width: $ripple-size;
+	height: $ripple-size;
+	span {
+		@include transform(scale(0));
+		display: block;
+		width: 100%;
+		height: 100%;
+		@include border-radius(50%);
+		background-color: $text-color;
+		@include animation(ripple $ripple-speed ease-in-out infinite);
+		position: absolute;
+	}
+	&:after {
+		@include transform(scale(0));
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		@include border-radius(50%);
+		background-color: $text-color;
+		@include animation(ripple $ripple-speed ($ripple-speed/3) ease-in-out infinite);
+		position: absolute;
+	}
+	&:before {
+		@include transform(scale(0));
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		@include border-radius(50%);
+		background-color: $text-color;
+		@include animation(ripple $ripple-speed ($ripple-speed/3)*2 ease-in-out infinite);
+		position: absolute;
+	}
+}
+
+// Continuous rotation
+$spinner-size : 80px;
+$spinner-speed : .6s;
+
 @include keyframes(rotate) {
   0%   { @include transform(rotate(0deg)); }
   100% { @include transform(rotate(360deg)); }
 }
+
+.spinner {
+  display: block;
+  width: $spinner-size;
+  height: $spinner-size;
+  border: 1px solid $light-text-color;
+  border-top-color: $primary-color;
+  border-bottom-color: $light-text-color;
+  border-left-color: $primary-color;
+  border-right-color: $light-text-color;
+  border-radius: 100%;
+  @include animation(rotate $spinner-speed linear infinite);
+}
+
+@import "hyperglobe-animation";

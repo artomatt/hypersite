@@ -5,7 +5,7 @@
 				<li><a class="active" href="./index.php">Index</a>
 				</li>
 				<li>
-					<a href="./new-grid.php">New Grid</a>
+					<div>New Grid</div>
 					<ul>
 						<li><a href="#grid">Grid</a></li>
 						<li><a href="#typography">Typography</a></li>
@@ -17,6 +17,7 @@
 						<li><a href="#icons">Icons</a></li>
 					</ul>
 				</li>
+				<li><a href="./animations.php">Animations</a></li>
 			</ul>
 		</nav>
 	</div>

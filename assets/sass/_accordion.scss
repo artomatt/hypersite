@@ -20,14 +20,15 @@
     li {
       margin-bottom: 0;
       border-top: $accordion-styles;
-      @include transition((max-height $speed ease-in-out, color $speed ease-in-out, background $speed ease-in-out));
+      //@include transition((max-height $speed ease-in-out, color $speed ease-in-out, background $speed ease-in-out));
+      @include transition((all $speed ease-in-out));
       // max-height: 62px;
       overflow: hidden;
       position: relative;
       .accordion-content {
-        // @include opacity(0);
-        // visibility: hidden;
-        //@include transition((visibility $speed ease-in-out, opacity $speed ease-in-out));
+        //max-height: 0;
+        //@include opacity(0);
+        //@include transition((max-height $slow*2 ease-in-out, opacity $slow ease-in-out));
         > div {
           padding-bottom: .5em;
           p {
@@ -37,9 +38,6 @@
       }
       .accordion-title {
         width: 90%;
-        // white-space: nowrap;
-        // overflow: hidden;
-        // text-overflow: ellipsis;
       }
       .icon {
         display: block;
@@ -47,9 +45,8 @@
         width: 16px;
         height: 2px;
         background-color: $text-color;
-        margin-top: 9px;
         right: 0;
-        top: 20px;
+        top: 33px;
         @include transition((transform $speed ease-in-out, background $speed ease-in-out));
         span {
           display: block;
@@ -76,10 +73,9 @@
         }
       }
       &.open {
-        //max-height: 500px;
         .accordion-content {
-          @include opacity(1);
-          visibility: visible;
+          //@include opacity(1);
+          //max-height: 1000px;
         }
         .accordion-title {
           color: $primary-color;

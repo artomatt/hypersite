@@ -45,6 +45,7 @@ HYPER = {
       $('#pageLoader').css({'padding-left': this.scrollbarWidth()});
       
     },
+
      actions : function(){
       fajax = this;
       var siteURL = "http://" + top.location.host.toString(),
@@ -55,6 +56,7 @@ HYPER = {
         fajax.gotoLink($(this).attr('href'));
       });
     },
+
     gotoLink : function(link){
       $('body').css({'overflow-y':'scroll'});
       $('html').removeClass('loaded');
@@ -66,6 +68,7 @@ HYPER = {
         window.location = link;
       },750);
     },
+
     scrollbarWidth : function() {
       var parent, child, width;
       if (width === undefined){
@@ -77,6 +80,7 @@ HYPER = {
       return width;
      },
   },
+
   slideshow : {
     slidesSelector : $('.slideshow .slides ul'),
     init : function(options){
@@ -86,16 +90,19 @@ HYPER = {
         };
         this.start(options);
     },
+
     stop : function() {
       this.slidesSelector.cycle('destroy');
       $('.slidesLoader').addClass('loading');
       $('.slideshow').css({'min-height': $('.slideshow').height()});
     },
+
     kill : function(){
       this.stop();
       this.slidesSelector.html('');
       $('.detailPager').html('');
     },
+
     initCycle2 : function(){
       if(!$.fn.cycle){
         /*! * jQuery Cycle2; version: 2.1.3 build: 20140314 * http://jquery.malsup.com/cycle2/ * Copyright (c) 2014 M. Alsup; Dual licensed: MIT/GPL */
@@ -104,6 +111,7 @@ HYPER = {
         (function(e){"use strict";e.event.special.swipe=e.event.special.swipe||{scrollSupressionThreshold:10,durationThreshold:1e3,horizontalDistanceThreshold:30,verticalDistanceThreshold:75,setup:function(){var i=e(this);i.bind("touchstart",function(t){function n(i){if(r){var t=i.originalEvent.touches?i.originalEvent.touches[0]:i;s={time:(new Date).getTime(),coords:[t.pageX,t.pageY]},Math.abs(r.coords[0]-s.coords[0])>e.event.special.swipe.scrollSupressionThreshold&&i.preventDefault()}}var s,o=t.originalEvent.touches?t.originalEvent.touches[0]:t,r={time:(new Date).getTime(),coords:[o.pageX,o.pageY],origin:e(t.target)};i.bind("touchmove",n).one("touchend",function(){i.unbind("touchmove",n),r&&s&&s.time-r.time<e.event.special.swipe.durationThreshold&&Math.abs(r.coords[0]-s.coords[0])>e.event.special.swipe.horizontalDistanceThreshold&&Math.abs(r.coords[1]-s.coords[1])<e.event.special.swipe.verticalDistanceThreshold&&r.origin.trigger("swipe").trigger(r.coords[0]>s.coords[0]?"swipeleft":"swiperight"),r=s=void 0})})}},e.event.special.swipeleft=e.event.special.swipeleft||{setup:function(){e(this).bind("swipe",e.noop)}},e.event.special.swiperight=e.event.special.swiperight||e.event.special.swipeleft})(jQuery);
       };
     },
+
     start : function(options){
       if ($('.slidesLoader.loading').length){
         setTimeout(function(){
@@ -124,6 +132,7 @@ HYPER = {
         swipe : true
       });
     },
+
     detailPager : function(){
       this.slidesSelector.on('cycle-pre-initialize', function( event, opts ) {
         //alert('preinit');
@@ -154,31 +163,33 @@ HYPER = {
 
     }
   },
+
   children : function() {
     $("li:last-child").addClass("last-child");
     $("li:first-child").addClass("first-child");
   },
+
   accordion : function() {
     $.fn.slideFadeToggle  = function(speed, easing, callback) {
-      return this.animate({opacity: 'toggle', height: 'toggle'}, 200, easing, callback);
+      return this.animate({opacity: 'toggle', height: 'toggle'}, 500, easing, callback);
     };
 
-    //$(".accordion-content").hide();
+    $(".accordion ul > li .accordion-content").hide();
 
-    var tglHandle = $(".accordion-title");
+    var tglHandle = $(".accordion ul > li .accordion-title");
           
     tglHandle.click(function() {
-      $(this).next(".accordion-content").slideFadeToggle();
-    });
-    $('.accordion ul > li').click(function() {
-      $(this).toggleClass('open');
+      $(this).siblings('.accordion ul > li .accordion-content').slideFadeToggle();
+      $(this).closest('.accordion ul > li').toggleClass("open");
     });
   },
+
   nav : function() {
     $('#menu-toggle').click(function(){
       $('body').toggleClass('menu-open');
     });
   },
+
   mailchimpSignup : function() {
     $('#newsletterForm').submit(function(e){
       e.preventDefault();
